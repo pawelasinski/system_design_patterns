@@ -1,6 +1,6 @@
-"""`Composite`_ — is a structural design pattern that allows you to group
-objects into a tree structure in order to work with them uniformly, i.e. allows clients
-to process individual objects and their groups (composite objects) in the same way.
+"""`Composite`_ — is a structural design pattern that allows client to group
+objects into a tree structure in order to work with them uniformly,
+i.e. allows processing individual objects and their groups (composite objects) in the same way.
 
 .. _Composite:
    https://refactoring.guru/ru/design-patterns/composite
@@ -51,7 +51,7 @@ if __name__ == "__main__":
     folder1 = Directory("folder1")
     folder2 = Directory("folder2")
 
-    # Build the tree structure.
+    # Building tree structure.
     folder1.add(file1)
     folder1.add(file2)
     folder2.add(file3)
