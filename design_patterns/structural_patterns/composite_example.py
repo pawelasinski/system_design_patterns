@@ -1,4 +1,4 @@
-"""`Composite`_ — is a structural design pattern that allows client to group
+"""`Composite`_ is a structural design pattern that allows client to group
 objects into a tree structure in order to work with them uniformly,
 i.e. allows processing individual objects and their groups (composite objects) in the same way.
 
