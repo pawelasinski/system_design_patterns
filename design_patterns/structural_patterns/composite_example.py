@@ -3,7 +3,7 @@ objects into a tree structure in order to work with them uniformly,
 i.e. allows processing individual objects and their groups (composite objects) in the same way.
 
 .. _Composite:
-   https://refactoring.guru/ru/design-patterns/composite
+    https://refactoring.guru/design-patterns/composite
 
 """
 from abc import ABC, abstractmethod
@@ -43,6 +43,7 @@ class Directory(Component):
         return "\n".join(results)
 
 
+# The client's code.
 if __name__ == "__main__":
     file1 = File("file1.txt")
     file2 = File("file2.txt")
