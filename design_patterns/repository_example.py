@@ -43,7 +43,7 @@ class BookRepository:
         if book_id in self._books:
             del self._books[book_id]
 
-
+# The client's code.
 if __name__ == "__main__":
     repository = BookRepository()
 
