@@ -1,6 +1,14 @@
-"""`Composite`_ is a structural design pattern that allows client to group
-objects into a tree structure in order to work with them uniformly,
-i.e. allows processing individual objects and their groups (composite objects) in the same way.
+"""Composite
+
+`Composite`_ is a structural design pattern that organizes objects into a tree structure,
+allowing clients to treat individual objects and groups of objects uniformly.
+This enables hierarchical data structures where both simple and complex elements
+can be processed in the same way.
+
+Why use it?
+* Unified interface (treats individual objects and their compositions identically).
+* Scalability (easily extends to support complex hierarchies).
+* Flexibility (allows dynamic composition and modification of object structures).
 
 .. _Composite:
     https://refactoring.guru/design-patterns/composite
@@ -15,7 +23,7 @@ class Component(ABC):
         pass
 
 
-# Individual object (file).
+# Individual object (file)
 class File(Component):
     def __init__(self, name):
         self.name = name
@@ -24,7 +32,7 @@ class File(Component):
         return f"File: {self.name}"
 
 
-# Composite object (directory).
+# Composite object (directory)
 class Directory(Component):
     def __init__(self, name):
         self.name = name
@@ -43,7 +51,6 @@ class Directory(Component):
         return "\n".join(results)
 
 
-# The client's code.
 if __name__ == "__main__":
     file1 = File("file1.txt")
     file2 = File("file2.txt")
@@ -52,7 +59,7 @@ if __name__ == "__main__":
     folder1 = Directory("folder1")
     folder2 = Directory("folder2")
 
-    # Building tree structure.
+    # Building tree structure
     folder1.add(file1)
     folder1.add(file2)
     folder2.add(file3)

@@ -1,6 +1,15 @@
-"""`Command_` is a behavioral design pattern that turns a request into a stand-alone object
-that contains all information about the request. This transformation lets you pass requests
-as a method arguments, delay or queue a request’s execution, and support undoable operations.
+"""Command
+
+`Command_` is a behavioral design pattern that encapsulates a request as an object,
+storing all the necessary details to execute, delay, queue, or undo the request when needed.
+This abstraction allows greater flexibility in handling operations dynamically.
+
+Why use it?
+* Decouples sender and receiver (the request issuer doesn’t need to know how it will be executed).
+* Supports undo/redo operations (essential for actions that need reversibility
+    (e.g., text editors, transactions)).
+* Facilitates request queuing and scheduling (enables delayed or batched execution).
+* Improves extensibility (new commands can be added without modifying existing code).
 
 .. _Command:
     https://refactoring.guru/design-patterns/command
@@ -8,7 +17,7 @@ as a method arguments, delay or queue a request’s execution, and support undoa
 """
 
 
-# The command's interface.
+# Command's interface
 class Command:
     def execute(self):
         pass
@@ -17,7 +26,7 @@ class Command:
         pass
 
 
-# The particular command's implementations.
+# Particular command's implementations
 class LightOnCommand(Command):
     def __init__(self, light):
         self.light = light
@@ -40,7 +49,7 @@ class LightOffCommand(Command):
         self.light.on()
 
 
-# Receiver.
+# Receiver
 class Light:
     def on(self):
         print("The light is switched on!")
@@ -49,7 +58,7 @@ class Light:
         print("The light is switched off!")
 
 
-# Invoker.
+# Invoker
 class RemoteControl:
     def __init__(self):
         self.history = []
@@ -64,7 +73,6 @@ class RemoteControl:
             last_command.undo()
 
 
-# The client's code.
 if __name__ == "__main__":
     light = Light()
 

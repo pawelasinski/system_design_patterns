@@ -1,6 +1,14 @@
-"""`Builder`_ is a creational design pattern that is used to create complex objects step by step.
-Instead of creating an object with one large constructor, the builder allows adding parts of it
-sequentially, providing control over the overall creation process.
+"""Builder
+
+`Builder`_  is a creational design pattern that simplifies the construction of complex objects
+by assembling them step by step. Instead of using a single, cumbersome constructor,
+it allows a more controlled and incremental way to create objects.
+
+Why use it?
+* Step-by-step construction (adds flexibility by creating objects progressively).
+* Improved readability (avoids complex, overloaded constructors).
+* Encapsulation (hides the details of object creation, ensuring a clean interface).
+* Consistency (ensures a uniform process for assembling different object variations).
 
 .. _Builder:
     https://refactoring.guru/design-patterns/builder
@@ -20,7 +28,7 @@ class Burger:
         return f"Burger with: {', '.join(self.ingredients)}"
 
 
-# The builder's interface.
+# Builder's interface
 class BurgerBuilder:
     def __init__(self):
         self.burger = Burger()
@@ -45,7 +53,6 @@ class BurgerBuilder:
         return self.burger
 
 
-# The client's code.
 if __name__ == "__main__":
     builder = BurgerBuilder()
 

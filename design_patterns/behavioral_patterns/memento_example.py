@@ -1,6 +1,15 @@
-"""`Memento_` is a behavioral design pattern that allows saving and
-restoring the state of an object without revealing its internal structure.
-Memento creates a snapshot of the object's state, which can be used to restore it later.
+"""Memento
+
+`Memento_`  is a behavioral design pattern that enables saving and restoring an object's state
+without exposing its internal details. It captures a snapshot of an object’s state,
+allowing it to be rolled back to a previous version when needed.
+
+Why use it?
+* Encapsulation (preserves object integrity by hiding internal state details).
+* Undo/Redo functionality (essential for applications like text editors,
+    transactions, and game saves).
+* State management (allows reverting changes without breaking encapsulation).
+* History tracking (enables navigation through previous states).
 
 .. _Momento:
     https://refactoring.guru/design-patterns/memento
@@ -8,7 +17,7 @@ Memento creates a snapshot of the object's state, which can be used to restore i
 """
 
 
-# The object that we want to save and restore its state.
+# The object that we want to save and restore its state
 class TextEditor:
     def __init__(self):
         self._content = ""
@@ -26,7 +35,7 @@ class TextEditor:
         self._content = memento.get_state()
 
 
-# Memento that stores the state of the TextEditor.
+# Memento that stores the state of the TextEditor
 class Memento:
     def __init__(self, state):
         self._state = state
@@ -35,7 +44,7 @@ class Memento:
         return self._state
 
 
-# Storage for mementos.
+# Storage for mementos
 class History:
     def __init__(self):
         self._mementos = []
@@ -49,7 +58,6 @@ class History:
         return None
 
 
-# The client's code.
 if __name__ == "__main__":
     editor = TextEditor()
     history = History()

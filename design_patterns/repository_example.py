@@ -1,20 +1,19 @@
-"""Repository is an architectural pattern that is used to abstract data access. The repository
-acts as a layer between the business logic of the application and the data source
-(for example, a database). It provides a unified interface for performing operations with data,
-hiding from the rest of the system the details of how this data is stored and retrieved.
+"""Repository
 
-It is used:
-* When it is necessary to isolate the logic of working with a database or other data source
-    from business logic;
-* When it is necessary to provide the possibility of easily replacing the data source
-    (for example, using a file or API instead of a database).
-* When it is necessary to simplify the testing of business logic by eliminating
-    dependence on a specific data source.
+The `Repository` pattern is an architectural pattern that abstracts data access,
+acting as a bridge between business logic and the underlying data source
+(e.g., a database, API, or file system). It provides a unified interface
+for managing data operations while encapsulating storage details.
+
+Why use it?
+* Separation of concerns (keeps business logic independent of data storage details).
+* Flexibility (easily swap data sources (e.g., database, API, or in-memory storage).
+* Improved testability (enables unit testing without relying on a specific database).
 
 """
 
 
-# Data store model.
+# Data store model
 class Book:
     def __init__(self, id_, title, author):
         self.id = id_
@@ -25,7 +24,7 @@ class Book:
         return f"Book(id={self.id}, title='{self.title}', author='{self.author}')"
 
 
-# Repository.
+# Repository
 class BookRepository:
     def __init__(self):
         self._books = {}
@@ -43,7 +42,7 @@ class BookRepository:
         if book_id in self._books:
             del self._books[book_id]
 
-# The client's code.
+
 if __name__ == "__main__":
     repository = BookRepository()
 
